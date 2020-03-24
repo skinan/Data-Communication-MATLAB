@@ -5,9 +5,7 @@ close all;
 % line coding
 % rz polar
 n = [1 0 1 0];
-% m = [0 0 0 0];
-
-% pulse shaping & maaping concurrently
+% pulse shaping with maping concurrently
 a = 0;
 b = 0.5;
 i = 1;

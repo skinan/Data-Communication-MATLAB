@@ -8,7 +8,7 @@ m = [0 0 0 0 0 0];
 c = 1;
 % mapping
 for j = 1:length(n)
-    if n(j) == 0
+    if n(j) == 1
         m(j) = 0;
     else
         if c == 1;

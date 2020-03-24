@@ -14,7 +14,7 @@ for j = 1 : length(t)
    
     else
         i = i + 1;
-        y(j) = n(i); 
+        y(j) = 5 * n(i)
     end
 end
 plot(t,y, 'm'); grid on;

@@ -5,7 +5,7 @@ close all;
 % r-z unipolar
 % binary input sequence
 n = [1 0 1 0];
-% mapping and pulse shaping concurrently
+% pulse shaping
 a = 0;
 b = 0.5;
 i = 1;
