@@ -2,9 +2,19 @@
 clc;
 clear all;
 close all;
-%Binary ASK modulation and demodulation
-n = [1 0 1 1 0];
-%NRZ phase shaping / pulse shaping
+%Binary FSK Modulation & Demodulation
+m = [1 0 1 1 0];
+
+% Mapping
+for j = 1: length(m)
+    if m(j) == 1
+        n(j) = 1;
+    else
+        n(j) = -1;
+    end
+end
+
+%NRZ Polar phase shaping / pulse shaping
 i = 1;
 t = 0 : 0.01 : length(n);
 for j = 1 : length(t)
@@ -18,29 +28,30 @@ end
 
 %plotting
 subplot(3, 1, 1);
-plot(t,mod,'c');
+plot(t,mod,'m');
 axis([0 length(n) -1 2]);
 title('Digital Input Sequence');
 xlabel('Time(s)');
 ylabel('Amplitude(V)');
+
 % Carrier
-c = cos(2 * pi * 2 * t);
-ask = mod .*c; 
-% Modulation
+c = sin(2*pi* 3 *t);
+% BPSK Modulation
+psk = mod .* c;
 %plotting
 subplot(3, 1, 2);
-plot(t,ask,'m');
+plot(t,psk,'c');
 axis([0 length(n) -1 2]);
-title('BASK');
+title('BPSK');
 xlabel('Time(s)');
 ylabel('Amplitude(V)');
 
 % Demodulation
 for j = 1: length(t)
-    if c(j) == ask(j)
+    if c(j) == psk(j)
         demod(j) = 1;
     else
-        demod(j) = 0;
+        demod(j) = -1;
     end
 end
 subplot(3, 1, 3);
@@ -49,3 +60,4 @@ axis([0 length(n) -1 2]);
 title('Detected Sequence');
 xlabel('Time(s)');
 ylabel('Amplitude(V)'); 
+
