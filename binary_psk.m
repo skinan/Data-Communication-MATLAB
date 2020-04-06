@@ -29,6 +29,7 @@ end
 %plotting
 subplot(3, 1, 1);
 plot(t,mod,'m');
+grid on;
 axis([0 length(n) -1 2]);
 title('Digital Input Sequence');
 xlabel('Time(s)');
@@ -41,6 +42,7 @@ psk = mod .* c;
 %plotting
 subplot(3, 1, 2);
 plot(t,psk,'c');
+grid on;
 axis([0 length(n) -1 2]);
 title('BPSK');
 xlabel('Time(s)');
@@ -56,6 +58,7 @@ for j = 1: length(t)
 end
 subplot(3, 1, 3);
 plot(t, demod, 'y');
+grid on;
 axis([0 length(n) -1 2]);
 title('Detected Sequence');
 xlabel('Time(s)');
